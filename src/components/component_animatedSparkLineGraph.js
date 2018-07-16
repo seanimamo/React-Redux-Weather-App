@@ -38,9 +38,10 @@ export default class AnimatedSparkLinesGraph extends Component {
             <div>
             <Sparklines data={this.state.data} width={180} height={120}>
                 <SparklinesLine color={this.props.sparkLineColor} />
-                <SparklinesSpots />
+                <SparklinesReferenceLine type='avg' color='blue' />
+                <SparklinesSpots color='blue'/>
             </Sparklines>
-            <div>avg:{} </div>
+            <div>average: {this.average(this.props.data)} {this.props.dataUnits}</div>
             </div>
         );
     }

@@ -26,20 +26,23 @@ class SearchBar extends Component {
     //this line stops the page from refreshing when the user submits on a form by default
     event.preventDefault();
     this.props.fetchWeather(this.state.searchTerm);
-    this.setState({term: `You Just Searched for: ${this.state.searchTerm}`});
+    this.setState({searchTerm: `You Just Searched for: ${this.state.searchTerm}`});
   }
  
   render() {
     //console.log(`Rendering searchBar component (Render Count: ${this.state.renderCount})...`);
     return (
-        <form onSubmit={this.submitSearch} className="input-group">
-            <input className="form-control"  placeholder="Find the weather at a location" 
+      <div>
+        <h1><center>React-Redux Weather App</center></h1>
+        <form onSubmit={this.submitSearch} className="input-group u_SearchBar">
+            <input className="form-control"  placeholder="Find the weather at a city" 
             value={this.state.searchTerm}
             onChange={this.onInputChange}/>
             <span className="input-group-btn">
                 <button className="btn btn-info">Search</button>
             </span>
         </form>
+      </div>
     );
   }
 }
